@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Welcome to PocketNotes</title>
+	<link rel="stylesheet" href="../../static/css/downloadstyle.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"                                                    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg320mUcww7on3RYdg4Va+PmSTsz/KG8vbdEjh4u" crossorigin="anonymous">
+
+    <<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+
+
+  <header id="main-nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <ul class="left">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{%  url 'download' %}">Download</a></li>
+            <li><a href="{% url 'upload' %}">Upload</a></li>
+            <li><a href="{% url 'search' %}">Search</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-center">
+          <a href="{% url 'getstarted'  %}" class="logo"><img src="../../static/images/logo2.png" alt="Disasto"></a>
+        </div>
+        <div class="col-md-4">
+          <ul class="right">
+              <li><a href="{% url 'profile' %}" class="help">Profile</a></li>
+              <li><a href="{% url 'userlogout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header><!-- //Main Nav -->
+
+
+<section id="header">
+	<div class="container">
+		<div class="row">
+        <div class="horizon">
+            <ul class="listy baar listy2">
+                <li>S.No.</li>
+                <li>Title</li>
+                <li>Subject</li>
+                <li>Uploaded By</li>
+                <li>Uploaded Date</li>
+                <li>Tags</li>
+                <li>Download</li>
+            </ul>
+        </div>
+      <div >
+          {% for n in p %}
+                <ul class="listy">
+                {% for i in n %}
+                    {% if i != n.6 %}
+                    <li style="color:white">{{ i }}</li>
+                    {% endif %}
+                {% endfor %}
+                    <li> <a href="{{ n.6 }}">Download</a></li>
+                </ul>
+          {% endfor %}
+    </div>
+		</div>
+	</div>
+</section>
+
+<footer id="footer">
+    <div class="container footer-container">
+      <div class="row">
+          <div class='line'>
+          </div>
+          <div>
+            <h1 class="footerline">PocketNotes</h1>
+            <img class="footerlogo" src="../../static/images/logo.png">
+          </div>
+          <div class="footerlefy">
+          <div class="footerlist1">
+            <ul class="footeraboutus">
+              <li class="mainy">About Us</li>
+              <li class="footerele">About Us</li>
+              <li class="footerele">Features</li>
+            </ul>
+          </div>
+          <div class="footerlist2">
+            <ul class="footercontact">
+              <li class="mainy">Contact Us</li>
+              <li class="footerele">Conatct Us</li>
+              <li class="footerele">Phone</li>
+              <li class="footerele">E-mail</li>
+            </ul>
+          </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="container copyright-container">
+      <div class="row">
+        <div >
+          <div class="made-by">Made with Love by <a href="#" target="_blank"><img class="vart" src="../../static/images/av.png" alt=""></a></div>
+        </div>
+      </div>
+    </div>
+</footer>
+</body>
+</html>
